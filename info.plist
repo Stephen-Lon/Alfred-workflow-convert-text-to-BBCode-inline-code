@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.src.rtftoinline</string>
+	<key>category</key>
+	<string>Utilities</string>
+	<key>connections</key>
+	<dict>
+		<key>2949DC8E-9F84-4058-8B33-975DB80A8876</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9EA46697-8733-4AE3-9C42-AA2247F24474</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8DD20EB5-66A2-46B5-91BF-DB7B2595860B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2949DC8E-9F84-4058-8B33-975DB80A8876</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9EA46697-8733-4AE3-9C42-AA2247F24474</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>41C95FA4-5201-4DCF-AD0D-F594DB8A6AC0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Stephen Christy</string>
+	<key>description</key>
+	<string>Converts selected text to BBCode simulated inline code</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Convert text to BBCode inline code</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{var:ConvertedText}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>41C95FA4-5201-4DCF-AD0D-F594DB8A6AC0</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsfiles</key>
+				<false/>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>acceptstext</key>
+				<true/>
+				<key>acceptsurls</key>
+				<false/>
+				<key>name</key>
+				<string>Convert text to BBCode inline code</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.universalaction</string>
+			<key>uid</key>
+			<string>8DD20EB5-66A2-46B5-91BF-DB7B2595860B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>CodeEnd</key>
+					<string>[/font][/background]</string>
+					<key>CodeStart</key>
+					<string>[background=#eee][font=courier,monospace]</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>2949DC8E-9F84-4058-8B33-975DB80A8876</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>ConvertedText</key>
+					<string>{var:CodeStart}{query}{var:CodeEnd}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>9EA46697-8733-4AE3-9C42-AA2247F24474</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>This simple workflow works on selected text as a Universal Action and converts the selected text to a simulation of inline code. It is designed for use on forums (like the Alfred forum) which use BBCode. The result looks like this:
+
+![Convert text to BBCode inline code](Images/OriginalText.png)
+
+The result of the workflow looks like this:
+
+![Convert text to BBCode inline code](Images/ConvertedText.png)
+
+
+# Usage
+
+Write your forum post and then select, one by one, each piece of text which you wish to simulate as inline code. Run this workflow from Universal Actions on each selected piece of text.</string>
+	<key>uidata</key>
+	<dict>
+		<key>2949DC8E-9F84-4058-8B33-975DB80A8876</key>
+		<dict>
+			<key>note</key>
+			<string>Set variables for code start &amp; code end</string>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>45</real>
+		</dict>
+		<key>41C95FA4-5201-4DCF-AD0D-F594DB8A6AC0</key>
+		<dict>
+			<key>note</key>
+			<string>Automatically paste to frontmost app (replacing selected text)</string>
+			<key>xpos</key>
+			<real>445</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>8DD20EB5-66A2-46B5-91BF-DB7B2595860B</key>
+		<dict>
+			<key>note</key>
+			<string>Universal Action for selected text</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>9EA46697-8733-4AE3-9C42-AA2247F24474</key>
+		<dict>
+			<key>note</key>
+			<string>Set variable for encoded text</string>
+			<key>xpos</key>
+			<real>345</real>
+			<key>ypos</key>
+			<real>45</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
